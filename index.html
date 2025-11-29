@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      href="https://static.vecteezy.com/system/resources/thumbnails/041/732/713/small/ai-generated-luminous-yellow-crescent-moon-on-a-transparent-background-png.png"
+    />
+    <title>🚀 Strong Junior → Power Middle Roadmap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      :root {
+        color-scheme: dark;
+        --bg-main: #020617;
+        --bg-card: #020617;
+        --bg-card-alt: #0b1120;
+        --border-subtle: rgba(148, 163, 184, 0.35);
+        --accent: #22c55e;
+        --accent-soft: rgba(34, 197, 94, 0.15);
+        --accent-strong: #4ade80;
+        --text-main: #e5e7eb;
+        --text-muted: #9ca3af;
+        --tag-js: #facc15;
+        --tag-ts: #38bdf8;
+        --tag-react: #22d3ee;
+        --tag-node: #4ade80;
+        --tag-arch: #a855f7;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+          "Segoe UI", sans-serif;
+        background: radial-gradient(
+          circle at top,
+          #0f172a 0,
+          #020617 45%,
+          #000 100%
+        );
+        color: var(--text-main);
+      }
+
+      .app {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 24px 16px 40px;
+      }
+
+      header {
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .app-title {
+        font-size: clamp(1.4rem, 2vw + 0.5rem, 1.9rem);
+        font-weight: 650;
+        letter-spacing: 0.02em;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .app-title span.badge {
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: 3px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        background: rgba(15, 23, 42, 0.9);
+        color: var(--text-muted);
+      }
+
+      .app-subtitle {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        max-width: 640px;
+      }
+
+      .progress-section {
+        background: rgba(15, 23, 42, 0.95);
+        border-radius: 18px;
+        padding: 16px 18px 14px;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9),
+          0 0 0 1px rgba(15, 23, 42, 0.6) inset;
+        margin-bottom: 24px;
+      }
+
+      .progress-top {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .progress-label {
+        font-size: 0.82rem;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .progress-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        font-size: 0.86rem;
+      }
+
+      .stat {
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        display: inline-flex;
+        align-items: baseline;
+        gap: 4px;
+      }
+
+      .stat-label {
+        color: var(--text-muted);
+      }
+
+      .stat-value {
+        font-weight: 500;
+      }
+
+      .stat-value.accent {
+        color: var(--accent-strong);
+      }
+
+      .progress-bar {
+        margin-top: 10px;
+        width: 100%;
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 1);
+        overflow: hidden;
+        border: 1px solid rgba(30, 64, 175, 0.8);
+        box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.7) inset,
+          0 0 25px rgba(34, 197, 94, 0.05);
+      }
+
+      .progress-bar-fill {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, var(--accent), #a3e635);
+        box-shadow: 0 0 20px rgba(34, 197, 94, 0.7),
+          0 0 40px rgba(74, 222, 128, 0.7);
+        transition: width 220ms ease-out;
+        border-radius: inherit;
+      }
+
+      .days-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 14px;
+      }
+
+      .day-card {
+        background: linear-gradient(145deg, var(--bg-card), var(--bg-card-alt));
+        border-radius: 16px;
+        padding: 13px 13px 10px;
+        border: 1px solid var(--border-subtle);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.85);
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        position: relative;
+        overflow: hidden;
+        transition: transform 160ms ease-out, box-shadow 160ms ease-out,
+          border-color 160ms ease-out, background 160ms ease-out;
+      }
+
+      .day-card::before {
+        content: "";
+        position: absolute;
+        inset: -40%;
+        background: radial-gradient(
+            circle at 0 0,
+            rgba(56, 189, 248, 0.06),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 100% 0,
+            rgba(34, 197, 94, 0.08),
+            transparent 55%
+          );
+        opacity: 0;
+        transition: opacity 160ms ease-out;
+        pointer-events: none;
+      }
+
+      .day-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 35px rgba(15, 23, 42, 0.9),
+          0 0 0 1px rgba(148, 163, 184, 0.5);
+      }
+
+      .day-card:hover::before {
+        opacity: 1;
+      }
+
+      .day-card.day-completed {
+        border-color: rgba(34, 197, 94, 0.95);
+        background: radial-gradient(circle at top left, #052e16, #020617 55%);
+        box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.5),
+          0 20px 40px rgba(22, 163, 74, 0.45);
+      }
+
+      .day-card.day-completed::before {
+        opacity: 0.8;
+      }
+
+      .day-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 2px;
+      }
+
+      .day-number {
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        padding: 3px 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.45);
+        background: rgba(15, 23, 42, 0.95);
+      }
+
+      .stack-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        justify-content: flex-end;
+      }
+
+      .tag {
+        font-size: 0.7rem;
+        font-weight: 500;
+        padding: 2px 7px;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(148, 163, 184, 0.45);
+        color: var(--text-muted);
+        white-space: nowrap;
+      }
+
+      .tag.js {
+        border-color: rgba(250, 204, 21, 0.6);
+        color: #facc15;
+      }
+
+      .tag.ts {
+        border-color: rgba(56, 189, 248, 0.6);
+        color: #38bdf8;
+      }
+
+      .tag.react {
+        border-color: rgba(45, 212, 191, 0.6);
+        color: #22d3ee;
+      }
+
+      .tag.node {
+        border-color: rgba(34, 197, 94, 0.6);
+        color: #4ade80;
+      }
+
+      .tag.arch {
+        border-color: rgba(168, 85, 247, 0.6);
+        color: #e9d5ff;
+      }
+
+      .day-title {
+        font-size: 0.98rem;
+        margin: 0;
+        font-weight: 600;
+      }
+
+      .day-focus {
+        margin: 0;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      .tasks {
+        margin: 4px 0 0;
+        padding-left: 16px;
+        font-size: 0.78rem;
+        color: #cbd5f5;
+      }
+
+      .tasks li {
+        margin-bottom: 2px;
+      }
+
+      .day-controls {
+        margin-top: 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.8rem;
+      }
+
+      .checkbox-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        color: var(--text-muted);
+        user-select: none;
+      }
+
+      .checkbox-label input[type="checkbox"] {
+        accent-color: var(--accent);
+        width: 15px;
+        height: 15px;
+      }
+
+      .day-notes {
+        margin-top: 4px;
+        width: 100%;
+        min-height: 54px;
+        resize: vertical;
+        font-size: 0.78rem;
+        padding: 6px 7px;
+        border-radius: 10px;
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        background: rgba(15, 23, 42, 0.9);
+        color: var(--text-main);
+        font-family: inherit;
+        outline: none;
+        transition: border-color 140ms ease-out, box-shadow 140ms ease-out,
+          background 140ms ease-out;
+      }
+
+      .day-notes::placeholder {
+        color: rgba(148, 163, 184, 0.8);
+      }
+
+      .day-notes:focus {
+        border-color: rgba(34, 197, 94, 0.9);
+        box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.5),
+          0 0 16px rgba(34, 197, 94, 0.25);
+        background: rgba(15, 23, 42, 1);
+      }
+
+      @media (max-width: 640px) {
+        .app {
+          padding-top: 18px;
+        }
+        header {
+          margin-bottom: 18px;
+        }
+        .progress-section {
+          padding: 12px 12px 10px;
+        }
+        .days-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div class="app-title">
+          🚀 Strong Junior → Power Middle
+          <span class="badge">JS · React · TypeScript · Node.js</span>
+        </div>
+        <div class="app-subtitle">
+          30 kunlik nazariy roadmap. Har kuni reja bajarilganda belgilab boring
+          — foizda progress avtomatik hisoblanadi (ma’lumotlar brauzeringizda
+          saqlanadi).
+        </div>
+      </header>
+
+      <section class="progress-section" aria-label="Roadmap progress">
+        <div class="progress-top">
+          <div>
+            <div class="progress-label">Umumiy progress</div>
+          </div>
+          <div class="progress-stats">
+            <div class="stat">
+              <span class="stat-label">Kunlar:</span>
+              <span class="stat-value" id="totalDays">0</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Bajarilgan:</span>
+              <span class="stat-value" id="completedDays">0</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Foiz:</span>
+              <span class="stat-value accent" id="progressPercent">0</span
+              ><span class="stat-label">%</span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="progress-bar"
+          role="progressbar"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+      </section>
+
+      <main>
+        <section
+          class="days-grid"
+          id="daysContainer"
+          aria-live="polite"
+        ></section>
+      </main>
+    </div>
+
+    <script>
+      const plan = [
+        {
+          day: 1,
+          title: "JS engine & execution model",
+          stacks: ["JS"],
+          focus:
+            "Call stack, memory heap, execution context, lexical environment.",
+          tasks: [
+            "JS engine (V8), call stack va memory heap haqida o‘qing.",
+            "Mini-esse yozing: call stack nima va recursionda qanday xato bo‘lishi mumkin.",
+            "Lexical scope va global scope bo‘yicha 2–3 misol yozing.",
+          ],
+        },
+        {
+          day: 2,
+          title: "this & prototypal inheritance",
+          stacks: ["JS"],
+          focus:
+            "this bog‘lanishi, prototype zanjiri, class aslida nimaligini tushunish.",
+          tasks: [
+            "this qayerga bog‘liq bo‘lishini (call-site) 4 holat bilan o‘ylab chiqing.",
+            "Prototypal inheritance va Object.create haqida nazariyani o‘qing.",
+            "Class sintaksisi aslida prototip ustida sugar ekanini yozib tushuntiring.",
+          ],
+        },
+        {
+          day: 3,
+          title: "Closures & module pattern",
+          stacks: ["JS"],
+          focus: "Closure orqali private data va konfiguratsiya saqlash.",
+          tasks: [
+            "Closure nima va qachon hosil bo‘lishini o‘z so‘zlaringiz bilan yozing.",
+            "Counter, config yoki caching misolida closure’dan foydalanishni tasvirlab bering.",
+            "Closure noto‘g‘ri ishlatilganda paydo bo‘ladigan 2 ta bug ssenariysini yozing.",
+          ],
+        },
+        {
+          day: 4,
+          title: "Event loop, microtask & macrotask",
+          stacks: ["JS"],
+          focus:
+            "Call stack, task queue, microtask queue va rendering o‘zaro bog‘liqligi.",
+          tasks: [
+            "Event loop jarayonini oddiy diagramma sifatida tasvirlab yozing.",
+            "Promise callbacklari setTimeout’dan oldin nima uchun ishlashini tushuntiring.",
+            "Microtask va macrotask farqini real misollar bilan yozing.",
+          ],
+        },
+        {
+          day: 5,
+          title: "Async patterns & error handling",
+          stacks: ["JS"],
+          focus:
+            "Callback hell, Promise, async/await va xatolarni tutish modeli.",
+          tasks: [
+            "Callback → Promise → async/await ketma-ketligini pseudo-code bilan yozing.",
+            "Frontend va backendda async xatolar qanday boshqa ko‘rinishini taqqoslang.",
+            "Unhandled promise rejection nima va nima uchun xavfli ekanini yozib chiqing.",
+          ],
+        },
+        {
+          day: 6,
+          title: "TypeScript fundamentals",
+          stacks: ["TS"],
+          focus:
+            "Structural typing, any vs unknown vs never, union va intersection types.",
+          tasks: [
+            "any, unknown va never qachon o‘rinli bo‘lishini real misollar bilan yozing.",
+            "Union va intersection turlarini oddiy domen misollarida tasvirlang.",
+            "Type widening va narrowing nima ekanini tushuntiring.",
+          ],
+        },
+        {
+          day: 7,
+          title: "TS advanced & utility types",
+          stacks: ["TS"],
+          focus:
+            "Generics, mapped/conditional types, Partial/Pick/Omit/Record.",
+          tasks: [
+            "Generics nima uchun kerak, loyihangizdan yoki tasavvuriy misol yozing.",
+            "Partial, Pick, Omit va Record uchun 4 ta real use-case yozing.",
+            "d.ts deklaratsiyalari va ambient types haqida qisqa izoh yozing.",
+          ],
+        },
+        {
+          day: 8,
+          title: "React rendering modeli",
+          stacks: ["React"],
+          focus: "Virtual DOM, reconciliation, key va render/commit fazalari.",
+          tasks: [
+            "Virtual DOM va reconciliationni sodda tilda tushuntiring.",
+            "Key noto‘g‘ri tanlanganda qanday bug’lar bo‘lishi mumkin – 3 ssenariy yozing.",
+            "O‘zingizdagi bitta sahifani React qanday render qilishini bosqichma-bosqich yozing.",
+          ],
+        },
+        {
+          day: 9,
+          title: "Hooks fundamentals",
+          stacks: ["React"],
+          focus:
+            "Nega hooks, hooks qoidalari, useState/useEffect/useMemo/useCallback farqi.",
+          tasks: [
+            "Hooks rules (qoidalari) nima uchun juda qat’iy ekanini tushuntiring.",
+            "useState, useEffect, useMemo, useCallback’ni bir-biridan farqlang.",
+            "useEffect noto‘g‘ri ishlatilganda chiqadigan 3 xatoni yozing.",
+          ],
+        },
+        {
+          day: 10,
+          title: "Advanced hooks patterns",
+          stacks: ["React"],
+          focus:
+            "Custom hooks, useRef, Context + hooks bilan state bo‘linishi.",
+          tasks: [
+            "2–3 ta custom hook g‘oyasini yozing (masalan: useLocalStorage, useDebouncedValue).",
+            "useRef’ni DOMdan tashqari “mutable box” sifatida qanday ishlatish mumkinligini tushuntiring.",
+            "Context’dan haddan tashqari foydalanishning minuslarini yozib chiqasiz.",
+          ],
+        },
+        {
+          day: 11,
+          title: "State management & server state",
+          stacks: ["React", "JS"],
+          focus:
+            "UI state vs server state, global vs local state, data fetching konseptlari.",
+          tasks: [
+            "UI state, server state va global state farqini tushuntiring.",
+            "Redux qachon justified, qachon overkill – fikrlaringizni yozing.",
+            "O‘zingizdagi bir loyihani local/global/server state’ga bo‘lib tasvirlang.",
+          ],
+        },
+        {
+          day: 12,
+          title: "React performance & re-render",
+          stacks: ["React"],
+          focus:
+            "Nima re-render qiladi, memoization va virtualization konsepti.",
+          tasks: [
+            "Re-renderni nima trigger qilishi haqida punktlar bilan yozing.",
+            "React.memo, useMemo va useCallbackning xavflarini tushuntiring.",
+            "Performance optimizatsiyasida profiling qilmasdan harakat qilish xavflarini yozing.",
+          ],
+        },
+        {
+          day: 13,
+          title: "Architecture & folder structure (frontend)",
+          stacks: ["React", "Arch"],
+          focus: "Feature-based yoki domain-based strukturani tushunish.",
+          tasks: [
+            "Ideal React app papka strukturasi sxemasini yozing.",
+            "UI, hooks, services, api, types orasidagi dependency flow’ni chizing.",
+            "Anti-pattern strukturalarni sanab chiqing (masalan, /utils ichida hamma narsa).",
+          ],
+        },
+        {
+          day: 14,
+          title: "React testing theory",
+          stacks: ["React"],
+          focus:
+            "Unit vs integration vs e2e, RTL prinsiplari, snapshot testlar.",
+          tasks: [
+            "Test turlari (unit, integration, e2e)ni taqqoslab yozing.",
+            "React Testing Library’ning asosiy prinsipini tushuntiring.",
+            "Bitta component uchun 5 ta test senariysi yozing (loading/error/empty/success/edge).",
+          ],
+        },
+        {
+          day: 15,
+          title: "Node.js event loop server tomonda",
+          stacks: ["Node", "JS"],
+          focus: "Node event loop, libuv, thread pool, CPU-bound vs I/O-bound.",
+          tasks: [
+            "Node event loop bosqichlarini (timers, poll, check ...) nazariy jihatdan yozing.",
+            "Node qachon ideal tanlov, qachon yaramasligini tushuntirib esse yozing.",
+            "O‘zingiz yoki tasavvuriy backend loyihada Node ni tanlash sabablarini yozing.",
+          ],
+        },
+        {
+          day: 16,
+          title: "Modules & layered architecture",
+          stacks: ["Node", "Arch"],
+          focus:
+            "CommonJS vs ES Modules, routes → controllers → services qatlamlari.",
+          tasks: [
+            "Express app uchun layered architecture sxemasini chizing.",
+            "Business logic’ni controllerga solish nimaga yomon – izohlang.",
+            "Module tizimlari (CJS vs ESM) farqi va migratsiya bo‘yicha fikr yozing.",
+          ],
+        },
+        {
+          day: 17,
+          title: "Express middlewares & routing",
+          stacks: ["Node"],
+          focus: "Middleware pipeline, global va route-specific middlewarlar.",
+          tasks: [
+            "Request/response oqimini middleware lar orqali qanday o‘tishini tushuntiring.",
+            "Error-handling middleware qanday ko‘rinishda bo‘lishi kerak – nazariya yozing.",
+            "RESTful routing prinsiplariga tayangan holda users/products CRUD route’larini tasvirlang.",
+          ],
+        },
+        {
+          day: 18,
+          title: "Validation, error handling & logging",
+          stacks: ["Node"],
+          focus:
+            "Schema-based validation, yagona error handler va logging levels.",
+          tasks: [
+            "Request validation uchun schema-based yondashuv (masalan, Zod/Joi)ni tushuntiring.",
+            "API uchun standart error JSON formatini loyihalab yozing.",
+            "Logger’da bo‘lishi kerak bo‘lgan level va ma’lumotlar ro‘yxatini yozing.",
+          ],
+        },
+        {
+          day: 19,
+          title: "Auth & security basics (backend)",
+          stacks: ["Node"],
+          focus:
+            "Session vs JWT, access/refresh, asosiy web xavfsizlik tushunchalari.",
+          tasks: [
+            "Session va JWT auth’ni taqqoslang.",
+            "JWT bilan bog‘liq 5 ta xavfni sanab chiqing.",
+            "Brute-force, rate limiting va password policy haqida qisqacha yozing.",
+          ],
+        },
+        {
+          day: 20,
+          title: "Databases & queries",
+          stacks: ["Node", "Arch"],
+          focus: "Relational vs NoSQL, transaction, ORM va index tushunchasi.",
+          tasks: [
+            "Relational va NoSQL DB’ni taqqoslab, qachon qaysi biri qulay ekanini yozing.",
+            "User, Course, Enrollment uchun ER diagramni tasvirlab yozing.",
+            "Index noto‘g‘ri tanlanganda chiqadigan muammolarni sanab chiqing.",
+          ],
+        },
+        {
+          day: 21,
+          title: "Node performance & scalability",
+          stacks: ["Node", "Arch"],
+          focus: "Clustering, load balancing, caching, 12-factor app asoslari.",
+          tasks: [
+            "Oddiy API uchun scaling strategiyasini yozing (1 instancdan ko‘p instancgacha).",
+            "Qayerga cache qo‘yish mumkinligini bitta app misolida tushuntiring.",
+            "Stateless server nima va nima uchun muhim ekanini yozing.",
+          ],
+        },
+        {
+          day: 22,
+          title: "Design patterns in JS/TS",
+          stacks: ["JS", "TS"],
+          focus: "SOLID prinsiplari, Singleton, Factory, Strategy, Observer.",
+          tasks: [
+            "Har bir pattern uchun React yoki Node loyihasida real qo‘llash misolini yozing.",
+            "SOLID prinsiplari frontend kodiga (komponentlarga) qanday tatbiq bo‘lishini tushuntiring.",
+            "Dependency Injection nima va qayerda kerak bo‘lishi mumkinligini yozing.",
+          ],
+        },
+        {
+          day: 23,
+          title: "Clean Code in JS/TS",
+          stacks: ["JS", "TS"],
+          focus:
+            "Naming, function uzunligi, pure functions, side effects va immutability.",
+          tasks: [
+            "Yomon yozilgan kodni tasavvur qilib, qanday refactor qilishingizni yozing.",
+            "Yaxshi nomlash uchun 5 ta shaxsiy qoidangizni chiqarib yozing.",
+            "Magic number/string, god function va god component anti-patternlarini tushuntiring.",
+          ],
+        },
+        {
+          day: 24,
+          title: "API design & versioning",
+          stacks: ["Node", "Arch"],
+          focus:
+            "REST best practices, HTTP status codes, versioning, pagination.",
+          tasks: [
+            "students resursi uchun to‘liq endpointlar ro‘yxatini yozing.",
+            "HTTP status kodlarni ishlatish bo‘yicha mini- qo‘llanma yozing.",
+            "Filtering, sorting va pagination strategiyalarini tasvirlab bering.",
+          ],
+        },
+        {
+          day: 25,
+          title: "Testing theory (frontend + backend)",
+          stacks: ["JS", "React", "Node"],
+          focus: "Test pyramid, mocking, test isolation.",
+          tasks: [
+            "Frontend uchun 3 ta unit va 3 ta integration test senariysi yozing.",
+            "Backend uchun 3 ta integration test senariysi yozing (auth, validation, permissions).",
+            "TDD vs real hayot yondashuvini taqqoslab fikr bildiring.",
+          ],
+        },
+        {
+          day: 26,
+          title: "CI/CD & code review culture",
+          stacks: ["Arch"],
+          focus:
+            "Git flow, CI pipelines, pull request va code review best practices.",
+          tasks: [
+            "Ideal pull request checklist’ini yozing (frontend va backend bo‘yicha).",
+            "Yaxshi va yomon code review kommentariylariga misollar yozing.",
+            "CI pipeline’da bo‘lishi kerak bo‘lgan step’larni sanab chiqing.",
+          ],
+        },
+        {
+          day: 27,
+          title: "Monitoring & observability",
+          stacks: ["Arch", "Node"],
+          focus: "Logging, metrics, tracing, error tracking, health checks.",
+          tasks: [
+            "Node/Express app uchun kuzatishingiz kerak bo‘lgan metrikalar ro‘yxatini yozing.",
+            "Frontend monitoringda nimalarni o‘lchash kerak (JS error, performance va h.k.).",
+            "Health-check endpointlar nima va qanday bo‘lishi kerakligini yozing.",
+          ],
+        },
+        {
+          day: 28,
+          title: "Security overview (fullstack)",
+          stacks: ["Arch", "Node", "React"],
+          focus:
+            "OWASP Top 10’dan asosiylari, HTTPS, CORS, frontend xavfsizligi.",
+          tasks: [
+            "OWASP Top 10’dan kamida 5 tasini nomlab, qisqacha tushuntiring.",
+            "Har bir xavf uchun frontend va backend tarafdan himoya strategiyasini yozing.",
+            "LocalStorage’da token saqlash bilan bog‘liq xavflarni tushuntiring.",
+          ],
+        },
+        {
+          day: 29,
+          title: "System design mini overview",
+          stacks: ["Arch"],
+          focus:
+            "Client → API → services → DB → cache, scaling, bottlenecklar.",
+          tasks: [
+            "Online kurs platformasi uchun high-level architecture chizing (matn bilan).",
+            "Read-heavy va write-heavy tizimlar farqini tushuntiring.",
+            "Loyihangizda bo‘lishi mumkin bo‘lgan bottlenecklarni taxmin qilib yozing.",
+          ],
+        },
+        {
+          day: 30,
+          title: "Consolidation & self-assessment",
+          stacks: ["JS", "TS", "React", "Node", "Arch"],
+          focus:
+            "1 oylik yo‘lni sarhisob qilish, kuchli va zaif joylarni aniqlash.",
+          tasks: [
+            '"Men middle dev sifatida nimalarni bilaman" degan chek-list yozing.',
+            "O‘zingizga 30–40 ta intervyu savollari ro‘yxatini tuzing.",
+            "Zaif mavzular ro‘yxatini tuzib, keyingi reja bo‘yicha ustuvorlik bering.",
+          ],
+        },
+      ];
+
+      const STORAGE_KEY = "middle_roadmap_state_v1";
+
+      let state = {
+        completed: {},
+        notes: {},
+      };
+
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return;
+          const parsed = JSON.parse(raw);
+          if (parsed && typeof parsed === "object") {
+            state = Object.assign(state, parsed);
+          }
+        } catch (err) {
+          console.warn("Holatni yuklab bo‘lmadi:", err);
+        }
+      }
+
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (err) {
+          console.warn("Holatni saqlab bo‘lmadi:", err);
+        }
+      }
+
+      function updateSummary() {
+        const total = plan.length;
+        const completedCount = state.completed
+          ? Object.keys(state.completed).length
+          : 0;
+        const percent = total ? Math.round((completedCount / total) * 100) : 0;
+
+        const totalSpan = document.getElementById("totalDays");
+        const completedSpan = document.getElementById("completedDays");
+        const percentSpan = document.getElementById("progressPercent");
+        const barFill = document.getElementById("progressBarFill");
+
+        if (totalSpan) totalSpan.textContent = String(total);
+        if (completedSpan) completedSpan.textContent = String(completedCount);
+        if (percentSpan) percentSpan.textContent = String(percent);
+        if (barFill) {
+          barFill.style.width = percent + "%";
+          barFill.setAttribute("aria-valuenow", String(percent));
+        }
+      }
+
+      function renderDays() {
+        const container = document.getElementById("daysContainer");
+        if (!container) return;
+        container.innerHTML = "";
+
+        plan.forEach((day) => {
+          const card = document.createElement("article");
+          card.className = "day-card";
+
+          const header = document.createElement("div");
+          header.className = "day-header";
+
+          const dayLabel = document.createElement("div");
+          dayLabel.className = "day-number";
+          dayLabel.textContent = "Day " + day.day;
+
+          const stacksBox = document.createElement("div");
+          stacksBox.className = "stack-tags";
+          day.stacks.forEach((stack) => {
+            const tag = document.createElement("span");
+            tag.className = "tag " + stack.toLowerCase();
+            tag.textContent = stack;
+            stacksBox.appendChild(tag);
+          });
+
+          header.appendChild(dayLabel);
+          header.appendChild(stacksBox);
+
+          const title = document.createElement("h2");
+          title.className = "day-title";
+          title.textContent = day.title;
+
+          const focus = document.createElement("p");
+          focus.className = "day-focus";
+          focus.textContent = day.focus;
+
+          const tasksList = document.createElement("ul");
+          tasksList.className = "tasks";
+          day.tasks.forEach((t) => {
+            const li = document.createElement("li");
+            li.textContent = t;
+            tasksList.appendChild(li);
+          });
+
+          const controls = document.createElement("div");
+          controls.className = "day-controls";
+
+          const checkboxLabel = document.createElement("label");
+          checkboxLabel.className = "checkbox-label";
+
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          const isCompleted =
+            state.completed && state.completed[String(day.day)];
+          checkbox.checked = !!isCompleted;
+
+          if (checkbox.checked) {
+            card.classList.add("day-completed");
+          }
+
+          checkbox.addEventListener("change", () => {
+            if (!state.completed) state.completed = {};
+            if (checkbox.checked) {
+              state.completed[String(day.day)] = true;
+              card.classList.add("day-completed");
+            } else {
+              delete state.completed[String(day.day)];
+              card.classList.remove("day-completed");
+            }
+            saveState();
+            updateSummary();
+          });
+
+          const checkboxText = document.createElement("span");
+          checkboxText.textContent = "Bugungi reja bajarildi";
+
+          checkboxLabel.appendChild(checkbox);
+          checkboxLabel.appendChild(checkboxText);
+
+          controls.appendChild(checkboxLabel);
+
+          const notes = document.createElement("textarea");
+          notes.className = "day-notes";
+          notes.rows = 3;
+          notes.placeholder = "O‘z izohlaringizni yozing...";
+
+          if (state.notes && state.notes[String(day.day)]) {
+            notes.value = state.notes[String(day.day)];
+          }
+
+          notes.addEventListener("input", () => {
+            if (!state.notes) state.notes = {};
+            state.notes[String(day.day)] = notes.value;
+            saveState();
+          });
+
+          card.appendChild(header);
+          card.appendChild(title);
+          card.appendChild(focus);
+          card.appendChild(tasksList);
+          card.appendChild(controls);
+          card.appendChild(notes);
+
+          container.appendChild(card);
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        loadState();
+        renderDays();
+        updateSummary();
+      });
+    </script>
+  </body>
+</html>
