@@ -85,6 +85,185 @@
         max-width: 640px;
       }
 
+      .nav-tabs {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 24px;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+        padding-bottom: 0;
+      }
+
+      .nav-tab {
+        padding: 12px 16px;
+        cursor: pointer;
+        border: none;
+        background: none;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        font-weight: 500;
+        border-bottom: 2px solid transparent;
+        transition: color 200ms, border-color 200ms;
+      }
+
+      .nav-tab.active {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+
+      .nav-tab:hover {
+        color: var(--accent-soft);
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+        animation: fadeIn 200ms ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .mentors-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+        margin-top: 24px;
+      }
+
+      .mentor-card {
+        background: linear-gradient(145deg, var(--bg-card), var(--bg-card-alt));
+        border-radius: 16px;
+        padding: 18px;
+        border: 1px solid var(--border-subtle);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.85);
+        transition: transform 160ms ease-out, box-shadow 160ms ease-out;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .mentor-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 35px rgba(15, 23, 42, 0.9);
+        border-color: rgba(34, 197, 94, 0.5);
+      }
+
+      .mentor-header {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .mentor-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: white;
+        flex-shrink: 0;
+      }
+
+      .mentor-info h3 {
+        margin: 0;
+        font-size: 1rem;
+        color: var(--text-main);
+      }
+
+      .mentor-expertise {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .mentor-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .skill-badge {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+        border-radius: 6px;
+        background: rgba(34, 197, 94, 0.15);
+        color: #4ade80;
+        border: 1px solid rgba(34, 197, 94, 0.4);
+      }
+
+      .mentor-stats {
+        display: flex;
+        gap: 12px;
+        padding-top: 8px;
+        border-top: 1px solid rgba(148, 163, 184, 0.2);
+        font-size: 0.8rem;
+      }
+
+      .mentor-stat {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .mentor-stat-label {
+        color: var(--text-muted);
+      }
+
+      .mentor-stat-value {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .mentor-action {
+        background: linear-gradient(90deg, var(--accent), #a3e635);
+        border: none;
+        color: #020617;
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: transform 140ms, box-shadow 140ms;
+        margin-top: 8px;
+      }
+
+      .mentor-action:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 60px 24px;
+        color: var(--text-muted);
+      }
+
+      .empty-state h2 {
+        font-size: 1.4rem;
+        margin: 0 0 12px 0;
+        color: var(--text-main);
+      }
+
+      .empty-state p {
+        font-size: 0.95rem;
+        margin: 0;
+      }
+
       .progress-section {
         background: rgba(15, 23, 42, 0.95);
         border-radius: 18px;
@@ -385,11 +564,17 @@
         </div>
         <div class="app-subtitle">
           30 kunlik nazariy roadmap. Har kuni reja bajarilganda belgilab boring
-          — foizda progress avtomatik hisoblanadi (ma’lumotlar brauzeringizda
+          — foizda progress avtomatik hisoblanadi (ma'lumotlar brauzeringizda
           saqlanadi).
         </div>
       </header>
 
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-tab="roadmap">📚 Roadmap</button>
+        <button class="nav-tab" data-tab="mentors">👨‍🏫 Find a Mentor</button>
+      </nav>
+
+      <div id="roadmap-tab" class="tab-content active">
       <section class="progress-section" aria-label="Roadmap progress">
         <div class="progress-top">
           <div>
@@ -428,9 +613,157 @@
           aria-live="polite"
         ></section>
       </main>
+      </div>
+
+      <div id="mentors-tab" class="tab-content">
+        <section class="progress-section" aria-label="Mentorship marketplace">
+          <div class="progress-top">
+            <div>
+              <div class="progress-label">Connect with Expert Mentors</div>
+            </div>
+            <div class="progress-stats">
+              <div class="stat">
+                <span class="stat-label">Available Mentors:</span>
+                <span class="stat-value accent" id="totalMentors">8</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Avg Rating:</span>
+                <span class="stat-value accent">⭐ 4.8</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="mentors-grid" id="mentorsContainer"></div>
+      </div>
     </div>
 
     <script>
+      // Tab Navigation
+      const navTabs = document.querySelectorAll('.nav-tab');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      navTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const tabName = tab.getAttribute('data-tab');
+
+          navTabs.forEach(t => t.classList.remove('active'));
+          tabContents.forEach(t => t.classList.remove('active'));
+
+          tab.classList.add('active');
+          document.getElementById(`${tabName}-tab`).classList.add('active');
+        });
+      });
+
+      // Mentor Data
+      const mentors = [
+        {
+          id: 1,
+          name: "Alexei Sokolov",
+          expertise: "React & Performance",
+          skills: ["React", "TypeScript", "Performance"],
+          sessions: 128,
+          rating: 4.9,
+          hourlyRate: "$65"
+        },
+        {
+          id: 2,
+          name: "Maria Chen",
+          expertise: "Node.js & APIs",
+          skills: ["Node.js", "Express", "REST APIs"],
+          sessions: 94,
+          rating: 4.8,
+          hourlyRate: "$60"
+        },
+        {
+          id: 3,
+          name: "Jamal Williams",
+          expertise: "Full Stack Development",
+          skills: ["React", "Node.js", "AWS"],
+          sessions: 156,
+          rating: 4.9,
+          hourlyRate: "$70"
+        },
+        {
+          id: 4,
+          name: "Sofia Rodriguez",
+          expertise: "Web Architecture",
+          skills: ["System Design", "Scalability", "DevOps"],
+          sessions: 87,
+          rating: 4.7,
+          hourlyRate: "$75"
+        },
+        {
+          id: 5,
+          name: "Dmitri Volkov",
+          expertise: "JavaScript Deep Dive",
+          skills: ["JavaScript", "Algorithms", "V8"],
+          sessions: 142,
+          rating: 4.9,
+          hourlyRate: "$55"
+        },
+        {
+          id: 6,
+          name: "Priya Sharma",
+          expertise: "TypeScript Expert",
+          skills: ["TypeScript", "Advanced Types", "Testing"],
+          sessions: 76,
+          rating: 4.8,
+          hourlyRate: "$62"
+        },
+        {
+          id: 7,
+          name: "Lucas Silva",
+          expertise: "React Patterns & Testing",
+          skills: ["React", "Testing", "Design Patterns"],
+          sessions: 103,
+          rating: 4.9,
+          hourlyRate: "$68"
+        },
+        {
+          id: 8,
+          name: "Emma Johnson",
+          expertise: "Career Growth & Interviews",
+          skills: ["Career Coaching", "System Design", "Interview Prep"],
+          sessions: 189,
+          rating: 4.8,
+          hourlyRate: "$80"
+        }
+      ];
+
+      function initMentorsGrid() {
+        const mentorsContainer = document.getElementById('mentorsContainer');
+        mentorsContainer.innerHTML = mentors.map(mentor => `
+          <div class="mentor-card">
+            <div class="mentor-header">
+              <div class="mentor-avatar">${mentor.name.split(' ').map(n => n[0]).join('')}</div>
+              <div class="mentor-info">
+                <h3>${mentor.name}</h3>
+                <p class="mentor-expertise">${mentor.expertise}</p>
+              </div>
+            </div>
+            <div class="mentor-skills">
+              ${mentor.skills.map(skill => `<span class="skill-badge">${skill}</span>`).join('')}
+            </div>
+            <div class="mentor-stats">
+              <div class="mentor-stat">
+                <span class="mentor-stat-label">Sessions</span>
+                <span class="mentor-stat-value">${mentor.sessions}</span>
+              </div>
+              <div class="mentor-stat">
+                <span class="mentor-stat-label">Rating</span>
+                <span class="mentor-stat-value">⭐ ${mentor.rating}</span>
+              </div>
+              <div class="mentor-stat">
+                <span class="mentor-stat-label">Rate</span>
+                <span class="mentor-stat-value">${mentor.hourlyRate}/hr</span>
+              </div>
+            </div>
+            <button class="mentor-action">Book Session</button>
+          </div>
+        `).join('');
+      }
+
       const plan = [
         {
           day: 1,
@@ -944,6 +1277,7 @@
         loadState();
         renderDays();
         updateSummary();
+        initMentorsGrid();
       });
     </script>
   </body>
